@@ -17,7 +17,7 @@ screen.onkey(player.go_up, 'Up')
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(0.05)
     screen.update()
 
     car_manager.create_car()
@@ -31,15 +31,9 @@ while game_is_on:
     if player.is_at_finish_line():
         player.go_to_start()
         car_manager.level_up()
+        car_manager.increase_car_spawn_chance()
         scoreboard.increase_level()
         scoreboard.display_level()
 
 
 screen.exitonclick()
-
-
-
-
-
-
-

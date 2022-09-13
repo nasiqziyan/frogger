@@ -13,11 +13,13 @@ class CarManager:
 
         self.all_cars = []
         self.car_speed = STARTING_MOVE_DISTANCE
+        self.car_spawn_chance = 5
 
 
     def create_car(self):
 
-        random_chance = random.randint(1,6)
+        random_chance = random.randint(1, self.car_spawn_chance)
+
         if random_chance == 1:
             new_car = Turtle("square")
             new_car.shapesize(stretch_wid=1, stretch_len=2)
@@ -35,3 +37,11 @@ class CarManager:
 
     def level_up(self):
         self.car_speed += MOVE_INCREMENT
+
+    def increase_car_spawn_chance(self):
+
+        if self.car_spawn_chance < 1:
+            self.car_spawn_chance = 1
+
+        else:
+            self.car_spawn_chance -= 2
